@@ -19,7 +19,8 @@ int main() {
 	cout << fixed << setprecision(2);
 	
 	vector<Account> accounts = {
-	Account(123456, 1234, 1000.00)
+	Account(123456, 1234, 1000.00),
+	Account(567890, 5678, 2000.00)
 	};
 	
 	const double DAILY_LIMIT = 1000.0;
@@ -75,11 +76,16 @@ int main() {
 while (loggedIn) {
 		cout << "\n--- Main Menu ---\n";
 		cout << "1) Show Balance\n2) Deposit\n3) Withdraw\n4) Transfer Funds\n5) Exit\n";
-		cout << "Choose an option: ";
+		cout << "Enter in a number to select an option: ";
 		
 		int choice;
-		cin >> choice;
 		
+		if (!(cin >> choice)) {
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "Invalid input. Please enter whole numbers only.\n";
+			continue;
+		}
 		
 		switch (choice) {
 			case 1: {
