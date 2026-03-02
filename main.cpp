@@ -7,7 +7,7 @@
 using namespace std;
 
 int findAccount(vector<Account>& accounts, int accountNumber) {
-	for (int i = 0; i < accounts.size(); ++i) {
+	for (size_t i = 0; i < accounts.size(); ++i) {
 		if (accounts[i].getAccountNumber() == accountNumber) {
 			return i;
 			}
